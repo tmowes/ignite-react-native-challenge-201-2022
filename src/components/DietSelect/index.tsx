@@ -1,11 +1,14 @@
+import { data } from './data'
 import * as S from './styles'
 import { DietSelectProps } from './types'
 
 export function DietSelect(props: DietSelectProps) {
-  const { label, isActive = false, ...attrs } = props
+  const { type, isActive = false, ...attrs } = props
+
   return (
-    <S.Container isActive={isActive} {...attrs}>
-      <S.Title>{label}</S.Title>
+    <S.Container type={type} isActive={isActive} {...attrs}>
+      <S.Status type={type} />
+      <S.Title>{data[type]}</S.Title>
     </S.Container>
   )
 }

@@ -1,4 +1,4 @@
 export type HighlightProps = {
-  title: string
+  stats: number
   subtitle: string
 }

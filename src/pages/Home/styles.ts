@@ -11,9 +11,34 @@ export const Container = styled(SafeAreaView)`
 
 export const Title = styled.Text`
   ${({ theme: { COLORS, FONT, SIZE } }) => css`
-    text-align: center;
     color: ${COLORS._GRAY_700};
-    font-size: ${SIZE.MD};
-    font-family: ${FONT.BOLD};
+    font-size: ${SIZE.LG};
+    font-family: ${FONT.REGULAR};
+  `}
+`
+
+export const Header = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
+`
+
+export const Logo = styled.Image.attrs({
+  resizeMode: 'contain',
+})`
+  height: 40px;
+`
+
+export const Profile = styled.Image.attrs({
+  resizeMode: 'cover',
+})`
+  ${({ theme: { COLORS } }) => css`
+    border-color: ${COLORS._GRAY_600};
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border-width: 2px;
   `}
 `

@@ -1,26 +1,21 @@
-import { PencilSimpleLine, Trash } from 'phosphor-react-native'
+import { Plus } from 'phosphor-react-native'
 
+import logoImg from '@assets/logo.png'
 import { CustomButton } from '@components/CustomButton'
+import { Highlight } from '@components/Highlight'
 
 import * as S from './styles'
 
 export function Home() {
   return (
     <S.Container>
-      <S.Title>Home</S.Title>
-      <CustomButton label="Cadastrar refeição" />
-      <CustomButton label="Cadastrar refeição" disabled />
-      <CustomButton variant="OUTlINE" label="Cancelar" />
-      <CustomButton variant="OUTlINE" label="Cancelar" disabled />
-      <CustomButton
-        label="Editar refeição"
-        leftIcon={(p) => <PencilSimpleLine {...p} />}
-      />
-      <CustomButton
-        variant="OUTlINE"
-        label="Excluir refeição"
-        leftIcon={(p) => <Trash {...p} />}
-      />
+      <S.Header>
+        <S.Logo source={logoImg} />
+        <S.Profile source={{ uri: 'https://github.com/tmowes.png' }} />
+      </S.Header>
+      <Highlight stats={89.1 / 100} subtitle="das refeições dentro da dieta" />
+      <S.Title>Refeições</S.Title>
+      <CustomButton label="Nova refeição" leftIcon={(p) => <Plus {...p} />} />
     </S.Container>
   )
 }

@@ -13,5 +13,8 @@ export const Container = styled.TextInput.attrs(({ theme: { COLORS } }) => ({
     padding: 0 16px;
     font-family: ${FONT.REGULAR};
     font-size: ${SIZE.MD};
+    border-width: 1px;
+    border-color: ${COLORS._GRAY_300};
+    margin-bottom: 24px;
   `}
 `

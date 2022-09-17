@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components/native'
 
 import { ContainerProps } from './types'
 
-export const Container = styled.TouchableOpacity<ContainerProps>`
+export const Container = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.7,
+  // eslint-disable-next-line prettier/prettier
+}) <ContainerProps>`
   ${({ theme: { COLORS }, variant, disabled }) => css`
     flex: 1;
     min-height: 56px;
@@ -14,7 +17,8 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
     border-width: 1px;
     background-color: ${COLORS._GRAY_600};
     border-radius: 6px;
-    margin-top: 16px;
+    margin-top: 8px;
+    padding: 0 16px;
 
     ${variant === 'PRIMARY' &&
     css`

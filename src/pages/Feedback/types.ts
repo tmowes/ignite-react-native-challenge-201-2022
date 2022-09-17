@@ -1,1 +1,3 @@
-export type FeedbackProps = {}
+export type FeedbackProps = {
+  type: 'offDiet' | 'withinDiet'
+}

@@ -14,3 +14,67 @@ home
 statistics
 new
 feedback
+
+
+<CustomButton label="Cadastrar refeição" />
+<CustomButton label="Cadastrar refeição" disabled />
+<CustomButton variant="OUTlINE" label="Cancelar" />
+<CustomButton variant="OUTlINE" label="Cancelar" disabled />
+<CustomButton
+  label="Editar refeição"
+  leftIcon={(p) => <PencilSimpleLine {...p} />}
+/>
+<CustomButton
+  variant="OUTlINE"
+  label="Excluir refeição"
+  leftIcon={(p) => <Trash {...p} />}
+/>
+
+
+offDiet
+withinDiet
+
+
+
+
+
+
+14.08.22
+20:00
+X-tudo
+16:00
+Whey protein com leite
+12:30
+Salada cesar com frango grelhado
+09:30
+Vitamina de banana com abacate
+
+13.08.22
+20:00
+X-tudo
+16:00
+Whey protein com leite
+12:30
+Salada cesar com frango grelhado
+09:30
+Vitamina de banana com abacate
+
+12.08.22
+20:00
+X-tudo
+16:00
+Sanduíche
+12:30
+Lasanha de frango com queijo
+09:30
+Torta de chocolate
+
+11.08.22
+20:00
+X-tudo
+16:00
+Whey protein com leite
+12:30
+Salada cesar com frango grelhado
+09:30
+Vitamina de banana com abacate

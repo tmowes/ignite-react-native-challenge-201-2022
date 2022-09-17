@@ -5,6 +5,7 @@ export declare global {
       new: undefined
       feedback: { isDiet: boolean }
       statistics: undefined
+      details: { id: string }
     }
   }
 }
