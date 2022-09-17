@@ -1,0 +1,19 @@
+import styled, { css } from 'styled-components/native'
+
+export const Container = styled.View`
+  ${({ theme: { COLORS } }) => css`
+    flex: 1;
+    background-color: ${COLORS._GRAY_100};
+    align-items: center;
+    justify-content: center;
+  `}
+`
+
+export const Title = styled.Text`
+  ${({ theme: { COLORS, FONT, SIZE } }) => css`
+    text-align: center;
+    color: ${COLORS._WHITE};
+    font-size: ${SIZE.MD};
+    font-family: ${FONT.REGULAR};
+  `}
+`

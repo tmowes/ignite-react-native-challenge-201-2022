@@ -1,0 +1,16 @@
+npx expo install @react-native-async-storage/async-storage @react-navigation/native @react-navigation/native-stack axios date-fns expo-font intl phosphor-react-native react-is react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-screens react-native-svg styled-components
+
+yad @babel/core @babel/preset-env @react-native-community/eslint-config @types/react @types/react-native @types/styled-components @types/styled-components-react-native @typescript-eslint/eslint-plugin @typescript-eslint/parser babel-plugin-module-resolver eslint eslint-config-airbnb eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-import-helpers eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-sonarjs plop prettier react-native-svg-transformer typescript
+
+
+<Trash size={32} weight="bold" />
+<PencilSimpleLine size={32} weight="bold" />
+<Plus size={32} weight="bold" />
+<ArrowUpRight size={32} weight="bold" />
+<ArrowLeft size={32} weight="bold" />
+
+
+home
+statistics
+new
+feedback
