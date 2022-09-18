@@ -5,3 +5,7 @@ export type MealCardProps = TouchableOpacityProps & {
   time: string
   isDiet?: boolean
 }
+
+export type StatusProps = {
+  isDiet?: boolean
+}

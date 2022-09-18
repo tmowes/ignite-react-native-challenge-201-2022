@@ -1,9 +1,9 @@
-export type MealsData = Record<string, DayMeals>
+export type MealsData = Record<string, Meal[]>
 
-export type DayMeals = {
+export type Meal = {
   id: string
   time: string
-  date: Date
+  date: string // 2022-09-17T08:30:00.000Z
   name: string
   description: string
   type: 'offDiet' | 'withinDiet'

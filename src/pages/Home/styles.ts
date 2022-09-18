@@ -42,3 +42,12 @@ export const Profile = styled.Image.attrs({
     border-width: 2px;
   `}
 `
+
+export const MealDay = styled.Text`
+  ${({ theme: { COLORS, FONT, SIZE } }) => css`
+    color: ${COLORS._GRAY_700};
+    font-size: ${SIZE.XLG};
+    font-family: ${FONT.BOLD};
+    margin: 8px 0;
+  `}
+`
