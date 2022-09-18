@@ -33,6 +33,3 @@ export async function updateAllStats(storedMeals: Meal[]) {
     throw error
   }
 }
-// calculateSequence(
-//   storedMeals.map((m) => (m.type === 'withinDiet' ? '-' : '|')).join(''),
-// )

@@ -2,22 +2,29 @@ import { Meal } from '@models/index'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { AppError } from '@utils/AppError'
+import { sameDate } from '@utils/formatDate/sameDate'
 
 import { MEAL_COLLECTION } from './config'
 import { getAllMeals } from './getAllMeals'
 import { updateAllStats } from './updateAllStats'
 
-export async function updateMeal(currMeal: Meal) {
+export async function updateMeal(editedMeal: Meal) {
   try {
     const storedMeals = await getAllMeals()
-    const mealAlreadyExists = storedMeals.filter((m) => m.id === currMeal.id)
+    const filteredMeals = storedMeals.filter((m) => m.id !== editedMeal.id)
+    const mealAtSameHour = filteredMeals.filter((m) => sameDate(m.date, editedMeal.date))
+    const mealAlreadyExists = storedMeals.find((m) => m.id === editedMeal.id)
 
-    if (mealAlreadyExists) {
+    if (mealAtSameHour.length >= 1) {
       throw new AppError('Já existe uma refeição nesse mesmo horario.')
     }
 
-    const sortedMeals: Meal[] = [...storedMeals, currMeal].sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    if (!mealAlreadyExists) {
+      throw new AppError('Refeição não encontrada.')
+    }
+
+    const sortedMeals: Meal[] = [...filteredMeals, editedMeal].sort(
+      (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     )
     await updateAllStats(sortedMeals)
     const updatedValue = JSON.stringify(sortedMeals)

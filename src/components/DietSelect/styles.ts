@@ -13,8 +13,7 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
     border-color: transparent;
     border-style: solid;
     height: 50px;
-    width: 70px;
-    margin-right: 12px;
+    max-width: 48%;
     flex-direction: row;
     ${isActive &&
     type === 'withinDiet' &&

@@ -10,7 +10,8 @@ export const Title = styled.Text`
   ${({ theme: { COLORS, FONT, SIZE } }) => css`
     text-align: center;
     color: ${COLORS._GRAY_500};
-    font-size: ${SIZE.SM};
+    font-size: ${SIZE.XLG};
     font-family: ${FONT.REGULAR};
+    margin-top: 80px;
   `}
 `

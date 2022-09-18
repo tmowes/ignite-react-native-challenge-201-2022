@@ -10,6 +10,13 @@ export const Container = styled(SafeAreaView)`
   `}
 `
 
+export const Scroll = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false,
+  contentContainerStyle: { paddingBottom: 80 },
+})`
+  width: 100%;
+`
+
 export const Title = styled.Text`
   ${({ theme: { COLORS, FONT, SIZE } }) => css`
     text-align: center;
@@ -31,24 +38,19 @@ export const Label = styled.Text`
 export const Content = styled.View`
   ${({ theme: { COLORS } }) => css`
     flex: 1;
+    width: 100%;
+    height: 100%;
     background-color: ${COLORS._GRAY_100};
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     padding: 24px;
-    margin-top: 32px;
+    margin-top: 24px;
   `}
 `
 
 export const Row = styled.View`
   flex-direction: row;
-  margin-bottom: 24px;
-`
-
-export const Column = styled.View`
-  flex: 1;
-  max-width: 50%;
-  margin-right: 16px;
-  margin-bottom: 24px;
+  justify-content: space-between;
 `
 
 export const Footer = styled.View`

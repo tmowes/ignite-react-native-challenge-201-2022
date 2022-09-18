@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react'
 
 import { Plus } from 'phosphor-react-native'
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
-import { Meal } from '@models/index'
+import { Meal, StatisticsData } from '@models/index'
 
 import logoImg from '@assets/logo.png'
 import { CustomButton } from '@components/CustomButton'
@@ -12,6 +12,8 @@ import { getAllMeals } from '@services/storage/getAllMeals'
 import { Loading } from '@components/Loading'
 import { MealCard } from '@components/MealCard'
 import { toDayDots } from '@utils/formatDate/toDayDots'
+import { getAllStats } from '@services/storage/getAllStats'
+import { EmptyListMessage } from '@components/EmptyListMessage'
 
 import * as S from './styles'
 
@@ -19,11 +21,16 @@ export function Home() {
   const { navigate } = useNavigation()
   const [isLoading, setIsLoading] = useState(true)
   const [meals, setMeals] = useState<Meal[]>([])
+  const [stats, setStats] = useState<StatisticsData>({} as StatisticsData)
 
   const loadMeals = async () => {
     try {
       setIsLoading(true)
       const data = await getAllMeals()
+      if (data) {
+        const statsData = await getAllStats()
+        setStats(statsData)
+      }
       setMeals(data)
     } catch (error) {
       console.log(error)
@@ -34,9 +41,6 @@ export function Home() {
   }
 
   const mealsByDay = [...new Set(meals.map((meal) => toDayDots(new Date(meal.date))))]
-  const totalMeals = meals.length
-  const totalMealsWithinDiet = meals.filter((m) => m.type === 'withinDiet').length
-  const percentageWithinDiet = totalMealsWithinDiet / Math.max(totalMeals, 1)
 
   useFocusEffect(
     useCallback(() => {
@@ -59,17 +63,20 @@ export function Home() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 64 }}
           keyExtractor={(item) => item}
+          ListEmptyComponent={
+            <EmptyListMessage message="Que tal cadastrar a primeira refeição?" />
+          }
           ListHeaderComponent={
             <>
               <Highlight
-                stats={percentageWithinDiet}
+                stats={stats?.percentageWithinDiet ?? 0}
                 subtitle="das refeições dentro da dieta"
               />
               <S.Title>Refeições</S.Title>
               <CustomButton
                 label="Nova refeição"
                 leftIcon={(p) => <Plus {...p} />}
-                onPress={() => navigate('new')}
+                onPress={() => navigate('new', { mealId: null })}
               />
             </>
           }

@@ -78,3 +78,7 @@ Whey protein com leite
 Salada cesar com frango grelhado
 09:30
 Vitamina de banana com abacate
+
+
+
+{"createdAt": "2022-09-18T13:46:44.320Z", "date": "2022-08-13T20:00:00.000Z", "description": "X-tudo", "id": "17:00|13.08.2022", "name": "X-tudo", "time": "12:00", "type": "offDiet", "updatedAt": "2022-09-18T19:26:33.045Z"} [{"createdAt": "2022-09-18T13:46:44.320Z", "date": "2022-08-13T20:00:00.000Z", "description": "X-tudo", "id": "17:00|13.08.2022", "name": "X-tudo", "time": "20:00", "type": "offDiet", "updatedAt": "2022-09-18T13:46:44.320Z"}]

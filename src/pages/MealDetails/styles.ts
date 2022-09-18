@@ -1,12 +1,25 @@
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled, { css } from 'styled-components/native'
 
-export const Container = styled(SafeAreaView)`
-  ${({ theme: { COLORS } }) => css`
+type ContainerProps = {
+  type: 'offDiet' | 'withinDiet'
+}
+
+// eslint-disable-next-line prettier/prettier
+export const Container = styled(SafeAreaView) <ContainerProps>`
+  ${({ theme: { COLORS }, type }) => css`
     flex: 1;
     background-color: ${COLORS._GRAY_100};
     padding: 24px 0 0;
     position: relative;
+    ${type === 'withinDiet' &&
+    css`
+      background-color: ${COLORS._GREEN_300};
+    `}
+    ${type === 'offDiet' &&
+    css`
+      background-color: ${COLORS._RED_300};
+    `}
   `}
 `
 

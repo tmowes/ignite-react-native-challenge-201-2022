@@ -11,19 +11,18 @@ import { Tag } from '@components/Tag'
 import { getAllMealById } from '@services/storage/getAllMealById'
 import { Loading } from '@components/Loading'
 import { toDateDetails } from '@utils/formatDate/toDateDetails'
+import { removeMealById } from '@services/storage/removeMealById'
 
 import * as S from './styles'
 
 export function MealDetails() {
   const { COLORS } = useTheme()
-  const { goBack } = useNavigation()
+  const { navigate, goBack } = useNavigation()
   const { params } = useRoute()
   const { id } = params as { id: string }
 
   const [isLoading, setIsLoading] = useState(true)
   const [meal, setMeal] = useState<Meal>({} as Meal)
-
-  const { name, description, time, type, date } = meal
 
   const loadMeal = useCallback(async () => {
     try {
@@ -38,8 +37,31 @@ export function MealDetails() {
     }
   }, [id])
 
-  const containerColor = type === 'withinDiet' ? COLORS._GREEN_300 : COLORS._RED_300
-  const iconColor = type === 'withinDiet' ? COLORS._GREEN_700 : COLORS._RED_700
+  const onRemoveMeal = useCallback(async () => {
+    try {
+      await removeMealById(id)
+      console.log(id)
+      goBack()
+    } catch (error) {
+      Alert.alert('Remover refeição', 'Não foi possível remover a refeição.')
+      console.log(error)
+    }
+  }, [goBack, id])
+
+  const confirmRemoveMeal = useCallback(() => {
+    Alert.alert('Deseja realmente excluir o registro da refeição?', '', [
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+      {
+        text: 'Sim',
+        onPress: () => onRemoveMeal(),
+      },
+    ])
+  }, [onRemoveMeal])
+
+  const iconColor = meal.type === 'withinDiet' ? COLORS._GREEN_700 : COLORS._RED_700
 
   useFocusEffect(
     useCallback(() => {
@@ -48,7 +70,7 @@ export function MealDetails() {
   )
 
   return (
-    <S.Container style={{ backgroundColor: containerColor }}>
+    <S.Container type={meal.type}>
       <S.Header>
         <S.BackIconContainer onPress={goBack}>
           <ArrowLeft size={24} weight="regular" color={iconColor} />
@@ -60,20 +82,22 @@ export function MealDetails() {
         <Loading />
       ) : (
         <S.Content>
-          <S.Title>{name}</S.Title>
-          <S.SubTitle>{description}</S.SubTitle>
+          <S.Title>{meal.name}</S.Title>
+          <S.SubTitle>{meal.description}</S.SubTitle>
           <S.Label>Data e hora</S.Label>
-          <S.SubTitle>{toDateDetails(date)}</S.SubTitle>
+          <S.SubTitle>{toDateDetails(meal.date)}</S.SubTitle>
           <Tag type={meal.type} />
           <S.Footer>
             <CustomButton
               label="Editar refeição"
               leftIcon={(p) => <PencilSimpleLine {...p} />}
+              onPress={() => navigate('new', { mealId: id })}
             />
             <CustomButton
               variant="OUTlINE"
               label="Excluir refeição"
               leftIcon={(p) => <Trash {...p} />}
+              onPress={confirmRemoveMeal}
             />
           </S.Footer>
         </S.Content>

@@ -8,7 +8,15 @@ import { MEAL_COLLECTION } from './config'
 export async function getAllMeals(): Promise<Meal[]> {
   try {
     const data = await AsyncStorage.getItem(MEAL_COLLECTION)
-    return data !== null ? JSON.parse(data) : seedMealsData
+    if (!data) {
+      return seedMealsData.sort(
+        (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      )
+    }
+    const parsedData = JSON.parse(data) as Meal[]
+    return parsedData.sort(
+      (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    )
   } catch (error) {
     console.log(error)
     throw error
