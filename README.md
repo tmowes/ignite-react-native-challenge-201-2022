@@ -28,6 +28,9 @@
 This is a project developed based on Rocketseat Ignite ReactNative Challenge 02 - 2022.
 
 <h1 align="center">
+<img src="screenshots/app-demo.gif" width="100%" >
+</h1>
+<h1 align="center">
 <img src="screenshots/home.png" width="32%" >
 <img src="screenshots/home-2.png" width="32%" >
 <img src="screenshots/stats.png" width="32%" >
