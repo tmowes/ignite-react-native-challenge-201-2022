@@ -68,12 +68,12 @@ export function Statistics() {
               <StatsCard
                 stats={stats.totalMealsWithinDiet}
                 subtitle="refeições dentro da dieta"
-                type="offDiet"
+                type="withinDiet"
               />
               <StatsCard
                 stats={stats.totalMealsOffDiet}
                 subtitle="refeições fora da dieta"
-                type="withinDiet"
+                type="offDiet"
               />
             </S.Row>
           </S.Content>
