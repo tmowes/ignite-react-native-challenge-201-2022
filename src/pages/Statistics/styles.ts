@@ -59,4 +59,5 @@ export const Content = styled.View`
 
 export const Row = styled.View`
   flex-direction: row;
+  justify-content: space-between;
 `

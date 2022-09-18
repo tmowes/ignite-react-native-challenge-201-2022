@@ -14,13 +14,13 @@ export const Container = styled.View<ContainerProps>`
     ${type === 'offDiet' &&
     css`
       background-color: ${COLORS._RED_300};
-      flex: 1;
       max-width: 50%;
-      margin-right: 12px;
+      flex: 1;
     `}
     ${type === 'withinDiet' &&
     css`
       background-color: ${COLORS._GREEN_300};
+      margin-right: 12px;
       max-width: 50%;
       flex: 1;
     `}
