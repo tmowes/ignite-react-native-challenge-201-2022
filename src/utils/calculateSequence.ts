@@ -1,10 +1,10 @@
 const highestStringSequence = (sample: string, char: '-', delimiter: '|') => {
   const split = sample.split(delimiter)
   const highestSequence = split.reduce((acc, curr) => {
-    const sequence = curr.split(char).length
+    const sequence = curr.length
     return sequence > acc ? sequence : acc
   }, 0)
-  return Math.max(highestSequence - 1, 0)
+  return highestSequence
 }
 
 export const calculateSequenceByKeyValue = <T>(arr: T[], key: keyof T, value: string) =>
