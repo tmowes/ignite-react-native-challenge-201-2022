@@ -5,6 +5,4 @@ export type ButtonIconProps = TouchableOpacityProps & {
   children: ReactNode
 }
 
-export type ContainerProps = {
-  disabled?: boolean
-}
+export type ContainerProps = Pick<TouchableOpacityProps, 'disabled'>

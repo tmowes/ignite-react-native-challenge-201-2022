@@ -11,7 +11,7 @@ export async function getAllStats(): Promise<StatisticsData> {
     const data = await AsyncStorage.getItem(STATS_COLLECTION)
     return data !== null ? JSON.parse(data) : await updateAllStats(seedMealsData)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     throw error
   }
 }

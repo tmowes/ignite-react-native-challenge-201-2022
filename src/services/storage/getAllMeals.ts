@@ -18,7 +18,7 @@ export async function getAllMeals(): Promise<Meal[]> {
       (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     )
   } catch (error) {
-    console.log(error)
+    console.error(error)
     throw error
   }
 }

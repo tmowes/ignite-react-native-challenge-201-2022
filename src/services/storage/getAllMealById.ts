@@ -13,7 +13,7 @@ export async function getAllMealById(mealId: string): Promise<Meal> {
     }
     return meal
   } catch (error) {
-    console.log(error)
+    console.error(error)
     throw error
   }
 }

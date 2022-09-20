@@ -4,7 +4,13 @@ import * as S from './styles'
 import { CustomButtonProps } from './types'
 
 export function CustomButton(props: CustomButtonProps) {
-  const { label, variant = 'PRIMARY', leftIcon: LeftIcon, disabled, ...attrs } = props
+  const {
+    label,
+    variant = 'PRIMARY',
+    leftIcon: LeftIcon,
+    disabled = false,
+    ...attrs
+  } = props
   const { COLORS } = useTheme()
 
   return (

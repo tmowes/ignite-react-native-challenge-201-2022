@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components/native'
 
-import { ContainerProps } from './types'
+import { ButtonVariantProps } from './types'
 
 export const Container = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7,
   // eslint-disable-next-line prettier/prettier
-}) <ContainerProps>`
+}) <ButtonVariantProps>`
   ${({ theme: { COLORS }, variant, disabled }) => css`
     flex: 1;
     min-height: 56px;
@@ -38,7 +38,7 @@ export const Container = styled.TouchableOpacity.attrs({
   `}
 `
 
-export const Title = styled.Text<ContainerProps>`
+export const Title = styled.Text<ButtonVariantProps>`
   ${({ theme: { COLORS, FONT, SIZE }, variant }) => css`
     color: ${COLORS._WHITE};
     font-size: ${SIZE.MD};

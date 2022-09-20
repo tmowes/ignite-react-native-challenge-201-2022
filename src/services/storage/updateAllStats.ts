@@ -29,7 +29,7 @@ export async function updateAllStats(storedMeals: Meal[]) {
 
     await AsyncStorage.setItem(STATS_COLLECTION, updatedValue)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     throw error
   }
 }

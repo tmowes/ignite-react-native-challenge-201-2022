@@ -30,7 +30,7 @@ export function MealDetails() {
       const data = await getAllMealById(id)
       setMeal(data)
     } catch (error) {
-      console.log(error)
+      console.error(error)
       Alert.alert('Erro', 'Não foi possível carregar a refeição.')
     } finally {
       setIsLoading(false)
@@ -44,7 +44,7 @@ export function MealDetails() {
       goBack()
     } catch (error) {
       Alert.alert('Remover refeição', 'Não foi possível remover a refeição.')
-      console.log(error)
+      console.error(error)
     }
   }, [goBack, id])
 

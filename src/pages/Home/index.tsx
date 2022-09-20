@@ -33,7 +33,7 @@ export function Home() {
       }
       setMeals(data)
     } catch (error) {
-      console.log(error)
+      console.error(error)
       Alert.alert('Erro', 'Não foi possível carregar as refeições.')
     } finally {
       setIsLoading(false)

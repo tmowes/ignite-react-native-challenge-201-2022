@@ -38,8 +38,6 @@ export function CreateMeal() {
   const [date, setDate] = useState(new Date())
   const [time, setTime] = useState(new Date())
 
-  console.log(date, time)
-
   const onCreateMeal = async () => {
     try {
       setIsLoading(true)
@@ -70,7 +68,7 @@ export function CreateMeal() {
 
       navigate('feedback', { isDiet: meal.type === 'withinDiet' })
     } catch (error) {
-      console.log(error)
+      console.error(error)
       if (error instanceof AppError) {
         Alert.alert(`${!mealId ? 'Criar' : 'Editar'} refeição`, error.message)
       } else {
@@ -91,7 +89,7 @@ export function CreateMeal() {
       setDate(new Date(data.date))
       setTime(new Date(data.date))
     } catch (error) {
-      console.log(error)
+      console.error(error)
       Alert.alert('Erro', 'Não foi possível carregar a refeição.')
     } finally {
       setIsLoading(false)
@@ -157,6 +155,7 @@ export function CreateMeal() {
       <S.Footer>
         <CustomButton
           label={!mealId ? 'Cadastrar refeição' : 'Salvar alterações'}
+          disabled={!meal.name || !meal.description || !meal.type}
           onPress={onCreateMeal}
         />
       </S.Footer>

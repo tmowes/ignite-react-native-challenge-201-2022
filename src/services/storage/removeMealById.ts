@@ -16,7 +16,7 @@ export async function removeMealById(mealId: string) {
     const updatedValue = JSON.stringify(sortedMeals)
     await AsyncStorage.setItem(MEAL_COLLECTION, updatedValue)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     throw error
   }
 }

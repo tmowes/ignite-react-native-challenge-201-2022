@@ -26,7 +26,7 @@ export function Statistics() {
       const data = await getAllStats()
       setStats(data)
     } catch (error) {
-      console.log(error)
+      console.error(error)
       Alert.alert('Erro', 'Não foi possível carregar as estatisticas.')
     } finally {
       setIsLoading(false)

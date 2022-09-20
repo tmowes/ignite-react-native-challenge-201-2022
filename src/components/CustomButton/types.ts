@@ -4,14 +4,13 @@ import { ElementType } from 'react'
 import { IconProps } from 'phosphor-react-native'
 
 export type CustomButtonProps = TouchableOpacityProps &
-  ContainerProps & {
+  ButtonVariantProps & {
     label: string
     leftIcon?: ElementType<IconProps>
   }
 
-export type ButtonVariantProps = 'PRIMARY' | 'OUTlINE'
+export type ButtonVariants = 'PRIMARY' | 'OUTlINE'
 
-export type ContainerProps = {
-  variant?: ButtonVariantProps
-  disabled?: boolean
+export type ButtonVariantProps = Pick<TouchableOpacityProps, 'disabled'> & {
+  variant?: ButtonVariants
 }
