@@ -11,11 +11,7 @@ export async function updateAllStats(storedMeals: Meal[]) {
     const totalMealsOffDiet = storedMeals.filter((m) => m.type === 'offDiet').length
     const totalMealsWithinDiet = storedMeals.filter((m) => m.type === 'withinDiet').length
     const percentageWithinDiet = totalMealsWithinDiet / Math.max(totalMeals, 1)
-    const topSequenceWithinDiet = calculateSequenceByKeyValue(
-      storedMeals,
-      'type',
-      'withinDiet',
-    )
+    const topSequenceWithinDiet = calculateSequenceByKeyValue(storedMeals, 'type', 'withinDiet')
 
     const updatedStats = {
       totalMeals,

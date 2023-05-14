@@ -36,9 +36,7 @@ export function Statistics() {
   const containerColor = isDietGoal(stats.percentageWithinDiet)
     ? COLORS._GREEN_300
     : COLORS._RED_300
-  const iconColor = isDietGoal(stats.percentageWithinDiet)
-    ? COLORS._GREEN_700
-    : COLORS._RED_700
+  const iconColor = isDietGoal(stats.percentageWithinDiet) ? COLORS._GREEN_700 : COLORS._RED_700
 
   useFocusEffect(
     useCallback(() => {

@@ -14,9 +14,7 @@ export async function getAllMeals(): Promise<Meal[]> {
       )
     }
     const parsedData = JSON.parse(data) as Meal[]
-    return parsedData.sort(
-      (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-    )
+    return parsedData.sort((b, a) => new Date(a.date).getTime() - new Date(b.date).getTime())
   } catch (error) {
     console.error(error)
     throw error

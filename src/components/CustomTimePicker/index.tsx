@@ -1,8 +1,6 @@
 import { useCallback, useState } from 'react'
 
-import DateTimePicker, {
-  DateTimePickerEvent,
-} from '@react-native-community/datetimepicker'
+import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker'
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 

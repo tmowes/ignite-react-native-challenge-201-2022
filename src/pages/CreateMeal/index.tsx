@@ -72,10 +72,7 @@ export function CreateMeal() {
       if (error instanceof AppError) {
         Alert.alert(`${!mealId ? 'Criar' : 'Editar'} refeição`, error.message)
       } else {
-        Alert.alert(
-          'Erro',
-          `Não foi possível ${!mealId ? 'criar' : 'editar'} a refeição.`,
-        )
+        Alert.alert('Erro', `Não foi possível ${!mealId ? 'criar' : 'editar'} a refeição.`)
       }
     }
   }

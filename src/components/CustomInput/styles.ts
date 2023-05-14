@@ -1,11 +1,6 @@
 import styled, { css } from 'styled-components/native'
 
-export const Container = styled.TextInput.attrs(({ theme: { COLORS } }) => ({
-  placeholderTextColor: COLORS._TRANSPARENT,
-  cursorColor: COLORS._GRAY_700,
-  numberOfLines: 1,
-  multiline: false,
-}))`
+export const Container = styled.TextInput`
   ${({ theme: { COLORS, FONT, SIZE } }) => css`
     flex: 1;
     min-height: 48px;

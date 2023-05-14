@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/native'
 import { ButtonVariantProps } from './types'
 
 export const Container = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.7,
+  activeOpacity: 0.7 as number,
   // eslint-disable-next-line prettier/prettier
 }) <ButtonVariantProps>`
   ${({ theme: { COLORS }, variant, disabled }) => css`
